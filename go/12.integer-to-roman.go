@@ -86,17 +86,17 @@ func intToRoman(num int) string {
 		return m[num]
 	}
 
-	k := []string{"V", "L", "D", "", ""}
-	kk := []string{"X", "C", "M", "", ""}
+	halfMap := []string{"V", "L", "D", "", ""}
+	tensMap := []string{"X", "C", "M", "", ""}
 
 	str := strconv.Itoa(num)
 	rest, _ := strconv.Atoi(str[1:])
 	digit, _ := strconv.Atoi(str[0:1])
 
 	pow := len(str)
-	charL := kk[pow-1]
-	charM := k[pow-1]
-	charS := kk[pow-2]
+	charL := tensMap[pow-1]
+	charM := halfMap[pow-1]
+	charS := tensMap[pow-2]
 
 	result := ""
 	switch digit {
