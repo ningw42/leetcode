@@ -52,16 +52,19 @@
  */
 func validateStackSequences(pushed []int, popped []int) bool {
 	var s []int
-	cur := 0
-	for _, i := range pushed {
-		// push
-		s = append(s, i)
-
-		for len(s) != 0 && cur < len(popped) && s[len(s)-1] == popped[cur] {
+	popIndex := 0
+	
+	// imitating the push and pop process
+	// if the current top element == the next poped element, pop and continue the step on top of the stack
+	// until the current top element != the next poped element, push next element and repeat the entire procedure
+	for _, nextPushedElement := range pushed {
+		s = append(s, nextPushedElement)
+		for len(s) != 0 && popIndex < len(popped) && s[len(s)-1] == popped[popIndex] {
 			s = s[0 : len(s)-1]
-			cur++
+			popIndex++
 		}
 	}
 
-	return cur == len(popped)
+	// if the given sequence is possible, the popIndex should be equal to length of the pop sequence
+	return popIndex == len(popped)
 }
