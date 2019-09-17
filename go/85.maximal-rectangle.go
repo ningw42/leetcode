@@ -24,7 +24,7 @@ func DynamicProgramming(matrix [][]byte) int {
 	}
 
 	for i := 0; i < lenX; i++ {
-		// find max height(consecutive '1's upwards)
+		// 1. find the max height(number of consecutive '1's upwards)
 		for j := 0; j < lenY; j++ {
 			if matrix[i][j] == '1' {
 				height[j] = height[j] + 1
@@ -32,6 +32,7 @@ func DynamicProgramming(matrix [][]byte) int {
 				height[j] = 0
 			}
 		}
+		// 2. find the left-most '1' on current row that forms a rectangle with previously found max height upwards
 		maxLeft := 0
 		for j := 0; j < lenY; j++ {
 			if matrix[i][j] == '1' {
@@ -43,6 +44,7 @@ func DynamicProgramming(matrix [][]byte) int {
 				maxLeft = j + 1
 			}
 		}
+		// 3. find the right-most '1' on current row that forms a rectangle with previously found max height upwards
 		minRight := lenY
 		for j := lenY - 1; j >= 0; j-- {
 			if matrix[i][j] == '1' {
@@ -54,7 +56,7 @@ func DynamicProgramming(matrix [][]byte) int {
 				minRight = j
 			}
 		}
-
+		// 4. calculate every rectangle's area and memorize the max one
 		for j := 0; j < lenY; j++ {
 			area := height[j] * (right[j] - left[j])
 			if area > max {
