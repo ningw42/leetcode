@@ -14,6 +14,11 @@ func deleteDuplicates(head *ListNode) *ListNode {
 	return TwoPass(head)
 }
 
+func OnePass(head *ListNode) *ListNode {
+	// TODO
+	return nil
+}
+
 func TwoPass(head *ListNode) *ListNode {
 	count := make(map[int]int)
 	current := head
