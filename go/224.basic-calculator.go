@@ -1,14 +1,10 @@
 /*
- * @lc app=leetcode id=227 lang=golang
+ * @lc app=leetcode id=224 lang=golang
  *
- * [227] Basic Calculator II
+ * [224] Basic Calculator
  */
 
 // @lc code=start
-
-// constuct postfix notation(reverse polish notation)
-// and evaluation
-
 var precedence map[byte]int
 
 func calculate(s string) int {
@@ -104,6 +100,5 @@ func isOperand(b byte) bool {
 func isOperater(b byte) bool {
 	return b == '+' || b == '-' || b == '*' || b == '/'
 }
-
 // @lc code=end
 
