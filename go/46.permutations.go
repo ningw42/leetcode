@@ -6,36 +6,25 @@
 
 // @lc code=start
 
-var result [][]int
-
 func permute(nums []int) [][]int {
-	result = [][]int{}
-	findPermute([]int{}, nums)
-
-	return result
+    return permutation(nums, make(map[int]struct{}))
 }
 
-func findPermute(permute []int, nums []int) {
-	if len(nums) == 0 {
-		result = append(result, makeSliceCopy(permute))
-	} else {
-		for i, num := range nums {
-			findPermute(append(permute, num), removeElementFromSlice(nums, i))
-		}
-	}
-}
-
-func makeSliceCopy(s []int) []int {
-	copy := make([]int, len(s))
-	for i, e := range s {
-		copy[i] = e
-	}
-	return copy
-}
-
-func removeElementFromSlice(s []int, i int) []int {
-	var copy []int
-	return append(append(copy, s[0:i]...), s[i+1:]...)
+func permutation(nums []int, taken map[int]struct{}) [][]int {
+    if len(nums) == len(taken) {
+        return [][]int{nil}
+    }
+    var ret [][]int
+    for i, num := range nums {
+        if _, isTaken := taken[i]; !isTaken {
+            taken[i] = struct{}{}
+            for _, p := range permutation(nums, taken) {
+                ret = append(ret, append([]int{num}, p...))
+            }
+            delete(taken, i)
+        }
+    }
+    return ret
 }
 // @lc code=end
 

@@ -3,42 +3,73 @@
  *
  * [146] LRU Cache
  */
-type LRUCache struct {
-	i int
-	cap int
-	cache map[int]int
-	keys []int
+ type Node struct {
+    Key   int
+    Value int
+    Prev  *Node
+    Next  *Node
 }
 
+type LRUCache struct {
+    m map[int]*Node
+    head *Node
+    tail *Node
+    capacity int
+}
+
+
 func Constructor(capacity int) LRUCache {
-	return LRUCache{
-		i: 0,
-		cap: capacity,
-		cache: make(map[int]int),
-		keys: nil
-	}
+    h := &Node{}
+    t := &Node{}
+    h.Next = t
+    t.Prev = h
+    return LRUCache{
+        m: make(map[int]*Node),
+        head: h,
+        tail: t,
+        capacity: capacity,
+    }
 }
 
 
 func (this *LRUCache) Get(key int) int {
-    if value, exists := this.cache[key]; exists {
-		this.i++
-		this.keys = append(this.keys, key)
-		return value
-	} else {
-		return -1
-	}
+    if node, exists := this.m[key]; exists {
+        this.moveToHead(node)
+        return node.Value
+    } else {
+        return -1
+    }
 }
 
 
 func (this *LRUCache) Put(key int, value int)  {
-	if _, exists := this.cache[key]; !exists {
-		if len(this.cache) == this.cap {
-			delete(this.cache, this.i - this.cap)
-		}
-	}
-	this.i++
-	this.cache[key] = value
+    if node, exists := this.m[key]; exists {
+        node.Value = value
+        this.moveToHead(node)
+    } else {
+        // append to head
+        node := &Node{Key: key, Value: value}
+        this.m[key] = node
+        this.head.Next, node.Next, this.head.Next.Prev, node.Prev = node, this.head.Next, node, this.head
+        if len(this.m) > this.capacity {
+            delete(this.m, this.tail.Prev.Key)
+            this.tail.Prev, this.tail.Prev.Prev.Next = this.tail.Prev.Prev, this.tail
+        }
+    }
+}
+
+func (lru *LRUCache) debug() {
+    var vals []int
+    for head := lru.head; head != nil; head = head.Next {
+        vals = append(vals, head.Value)
+    }
+    fmt.Printf("%v\n", vals)
+    fmt.Println("---------")
+}
+
+func (this *LRUCache) moveToHead(node *Node) {
+        node.Prev.Next, node.Next.Prev = node.Next, node.Prev
+        node.Prev, node.Next, this.head.Next, this.head.Next.Prev = this.head, this.head.Next, node, node
 }
 
 
