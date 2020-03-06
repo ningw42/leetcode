@@ -10,80 +10,43 @@
  *     Next *ListNode
  * }
  */
-func reverseKGroup(head *ListNode, k int) *ListNode {
-	if k == 1 {
-		return head
-	}
-
-	// collect all nodes
-	stash := make([]*ListNode, 0)
-
-	current := head
-	length := 0
-	for current != nil {
-		stash = append(stash, current)
-		current = current.Next
-		length++
-	}
-
-	if k > length {
-		return head
-	}
-
-	var newHead *ListNode
-	var lastKTail *ListNode
-	i := 0
-	// reverse every k elements
-	for ; i + k <= length; i = i + k {
-		kHead, kTail := helper(stash[i:i+k])
-		if newHead == nil {
-			newHead = kHead
-		} else {
-			lastKTail.Next = kHead
-		}
-		lastKTail = kTail
-	}
-
-	// append tail if necessary
-	if length % k != 0 {
-		lastKTail.Next = stash[i]
-	}
-
-	return newHead
-}
-
-func helper(nodes []*ListNode) (head *ListNode, tail *ListNode) {
-	length := len(nodes)
-	first := nodes[length - 1]
-	last := nodes[0]
-
-	head = first
-	tail = last
-
-	current := head
-	for i := length - 2; i > 0; i-- {
-		current.Next = nodes[i]
-		current = current.Next
-	}
-	current.Next = tail	
-	tail.Next = nil
-
-	return
-}
-
-func printList(head *ListNode) {
-	fmt.Println()
-	for head != nil {
-		fmt.Println(head.Val)
-		head = head.Next
-	}
-}
-
-func printSlice(s []*ListNode) {
-	fmt.Println()
-	for _, n := range s {
-		fmt.Println(n.Val)
-	}
+ func reverseKGroup(head *ListNode, k int) *ListNode {
+    var last, cursor, current, prev *ListNode
+    var count int
+    
+    cursor = head
+    for cursor != nil {
+        count = 0
+        // make sure there are more than k nodes left
+        for cursor != nil && count < k {
+            cursor = cursor.Next
+            count++
+        }
+        if count == k {
+            // preparation for linked list traversal
+            if last == nil {
+                // the very first iteration
+                prev = head
+                current = head.Next
+            } else {
+                prev = last.Next
+                current = last.Next.Next
+            }
+            // reverse linked list for current section
+            for current != cursor {
+                current, prev, current.Next = current.Next, current, prev
+            }
+            // put the reversed section in right place
+            if last == nil {
+                // the very first iteration
+                head, head.Next, last = prev, current, head
+            } else {
+                last.Next, last, last.Next.Next = prev, last.Next, current
+            }
+        }
+    }
+    
+    return head
 }
 
 

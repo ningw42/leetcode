@@ -10,42 +10,33 @@
  *     Next *ListNode
  * }
  */
-func reverseBetween(head *ListNode, m int, n int) *ListNode {
-	if head == nil {
-		return nil
-	}
-	if m == n {
-		return head
-	}
-
-	var prev, p, next *ListNode
-	tail := head
-	i := 1
-	for ; i < m; i++ {
-		prev = tail
-		tail = tail.Next
-	}
-
-	curr := tail
-	for ; i <= n; i++ {
-		if p == nil {
-			p = curr
-			curr = curr.Next
-		} else {
-			next = curr.Next
-			curr.Next = p
-			p = curr
-			curr = next
-		}
-	}
-
-	if prev == nil {
-		head = p
-	} else {
-		prev.Next = p
-	}
-	tail.Next = next
-
-	return head
+ func reverseBetween(head *ListNode, m int, n int) *ListNode {
+    if m == n {
+        return head
+    }
+    
+    var prev, curr, sectionPrev *ListNode
+  
+    // find section begin
+    i := 0
+    curr = head
+    for i < m {
+        curr, prev, sectionPrev = curr.Next, curr, prev
+        i++
+    }
+    
+    // reverse linked list
+    for curr != nil && i < n {
+        curr.Next, curr, prev = prev, curr.Next, curr
+        i++
+    }
+    
+    // link section
+    if sectionPrev == nil {
+        head.Next = curr
+        return prev
+    } else {
+        sectionPrev.Next, sectionPrev.Next.Next = prev, curr
+        return head
+    }
 }
-
