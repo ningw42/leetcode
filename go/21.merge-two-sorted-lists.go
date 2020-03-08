@@ -28,46 +28,22 @@ import "fmt"
  *     Next *ListNode
  * }
  */
-func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
-	if l1 == nil && l2 == nil {
-		return nil
-	}
-
-	head := &ListNode{}
-	previous := head
-	for l1 != nil && l2 != nil {
-		if l1.Val > l2.Val {
-			previous.Next = l2
-			previous = l2
-			l2 = l2.Next
-		} else if l1.Val < l2.Val {
-			previous.Next = l1
-			previous = l1
-			l1 = l1.Next
-		} else {
-			n1 := l1.Next
-			n2 := l2.Next
-
-			l1.Next = l2
-			previous.Next = l1
-			previous = l2
-
-			l1 = n1
-			l2 = n2
-		}
-	}
-
-	if l1 != nil && l2 == nil {
-		previous.Next = l1
-	} else if l1 == nil && l2 != nil {
-		previous.Next = l2
-	}
-
-	return head.Next
-}
-
-func Print(l *ListNode) {
-	for c := l; c != nil; c = c.Next {
-		fmt.Println(c.Val)
-	}
+ func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
+    dummy := &ListNode{}
+    current := dummy
+    for l1 != nil || l2 != nil {
+        if l1 != nil && l2 != nil {
+            if l1.Val < l2.Val {
+                current.Next, current, l1 = l1, l1, l1.Next
+            } else {
+                current.Next, current, l2 = l2, l2, l2.Next
+            }
+        } else if l1 == nil && l2 != nil {
+            current.Next, current, l2 = l2, l2, l2.Next
+        } else if l1 != nil && l2 == nil {
+            current.Next, current, l1 = l1, l1, l1.Next
+        }
+    }
+    
+    return dummy.Next
 }

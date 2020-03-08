@@ -6,24 +6,25 @@
 
 // @lc code=start
 func maxSubArray(nums []int) int {
-	var result int
-	sums := make([]int, len(nums))
-	sums[0] = nums[0]
-	max := sums[0]
-	for i := 1; i < len(nums); i++ {
-		if s := sums[i-1] + nums[i]; s > nums[i] {
-			result = s
-		} else {
-			result = nums[i]
-		}
-		sums[i] = result
-		if result > max {
-			max = result
-		}
-	}
-
-	return max
+    if len(nums) == 0 {
+        return 0
+    }
+    maxSubArraySumEndsAt := make([]int, len(nums))
+    maxSubArraySumEndsAt[0] = nums[0]
+    maxSum := nums[0]
+    for i := 1; i < len(nums); i++ {
+        if sum := maxSubArraySumEndsAt[i-1] + nums[i]; sum > nums[i] {
+            maxSubArraySumEndsAt[i] = sum
+        } else {
+            maxSubArraySumEndsAt[i] = nums[i]
+        }
+        if maxSubArraySumEndsAt[i] > maxSum {
+            maxSum = maxSubArraySumEndsAt[i]
+        }
+    }
+    return maxSum
 }
+
 
 // @lc code=end
 

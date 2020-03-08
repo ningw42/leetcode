@@ -14,6 +14,28 @@
  * }
  */
 func kthSmallest(root *TreeNode, k int) int {
+	return iteration(root, k)
+}
+
+func iteration(root *TreeNode, k int) int {
+	var stack []*TreeNode
+	var count int
+	for root != nil || len(stack) > 0 {
+		for root != nil {
+			stack = append(stack, root)
+			root = root.Left
+		}
+		root = stack[len(stack)-1]
+		stack = stack[:len(stack)-1]
+		if count == k-1 {
+			return root.Val
+		}
+		root = root.Right
+		count++
+	}
+}
+
+func recursive(root *TreeNode, k int) int {
 	ordered := inorder(root)
 	return ordered[k-1]
 }
