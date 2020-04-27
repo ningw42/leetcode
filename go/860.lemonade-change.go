@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=860 lang=golang
- *
- * [860] Lemonade Change
- */
-
-// @lc code=start
 func lemonadeChange(bills []int) bool {
 	var five, ten, twenty int
 
@@ -30,6 +23,3 @@ func lemonadeChange(bills []int) bool {
 
 	return true
 }
-
-// @lc code=end
-

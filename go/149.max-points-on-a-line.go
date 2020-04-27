@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=149 lang=golang
- *
- * [149] Max Points on a Line
- */
-
-// @lc code=start
 func maxPoints(points [][]int) int {
 	m := make(map[string]int)
 	for _, point := range points {
@@ -51,7 +44,6 @@ func maxPointsHelper(points [][]int, count []int) int {
 					} else if points[i][1] == points[j][1] {
 						onSameLine = points[k][1] == points[i][1]
 					} else {
-						// amplify the K will increase the precision
 						K := 100 * float64(points[j][1] - points[i][1]) / float64(points[j][0] - points[i][0])
 						onSameLine = 100 * float64(points[k][1] - points[i][1]) / float64(points[k][0] - points[i][0]) == K
 					}
@@ -71,5 +63,3 @@ func maxPointsHelper(points [][]int, count []int) int {
 	}
 	return max
 }
-// @lc code=end
-

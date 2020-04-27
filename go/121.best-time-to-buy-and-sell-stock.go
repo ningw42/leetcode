@@ -1,21 +1,20 @@
-/*
- * @lc app=leetcode id=121 lang=golang
- *
- * [121] Best Time to Buy and Sell Stock
- */
 func maxProfit(prices []int) int {
-	var sum, max int
-	for i := 1; i < len(prices); i++ {
-		if newSum := sum + (prices[i] - prices[i-1]); newSum < 0 {
-			sum = 0
-		} else {
-			sum = newSum
-		}
-		if sum > max {
-			max = sum
-		}
-	}
-
-	return max
+    profits := make([]int, len(prices))
+    var maxProfit int
+    for i := 1; i < len(prices); i++ {
+        todayProfit := profits[i-1] + prices[i] - prices[i-1]
+        profits[i] = max(0, todayProfit)
+        if profits[i] > maxProfit {
+            maxProfit = profits[i]
+        }
+    }
+    return maxProfit
 }
 
+func max(a, b int) int {
+    if a < b {
+        return b
+    } else {
+        return a
+    }
+}

@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=795 lang=golang
- *
- * [795] Number of Subarrays with Bounded Maximum
- */
-
-// @lc code=start
 func numSubarrayBoundedMax(A []int, L int, R int) int {
 	return LinearSearch(A, L, R)
 }
@@ -13,25 +6,15 @@ func LinearSearch(A []int, L, R int) int {
 	begin, end, count := -1, -1, 0
 	for i, a := range A {
 		if a < L {
-			// if an element E is smaller than L,
-			// all the subarrays ends at E and starting from
-			// the last element that greater than R and contains
-			// the last element that fits in the range should be count
-			// which is exactly "end - begin"
+
 		}
 		if L <= a && a <= R {
-			// if an element E fits in the range,
-			// all the subarrays ends at E starting from the last
-			// element that greater than R should be count
 			end = i
 		}
 		if a > R {
-			// if an element E is greater than R,
-			// new segmentation begins
 			begin = i
 			end = i
 		}
-
 		count += end - begin
 	}
 
@@ -115,6 +98,3 @@ func BruteForce(A []int, L, R int) int {
 
 	return count
 }
-
-// @lc code=end
-

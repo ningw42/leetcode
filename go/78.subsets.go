@@ -1,12 +1,3 @@
-import "math"
-
-/*
- * @lc app=leetcode id=78 lang=golang
- *
- * [78] Subsets
- */
-
-// @lc code=start
 func subsets(nums []int) [][]int {
 	var subsets [][]int
 	var subset []int
@@ -27,6 +18,3 @@ func subsets(nums []int) [][]int {
 
 	return subsets
 }
-
-// @lc code=end
-

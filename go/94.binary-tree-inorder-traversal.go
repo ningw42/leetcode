@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=94 lang=golang
- *
- * [94] Binary Tree Inorder Traversal
- */
-
-// @lc code=start
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
@@ -20,6 +13,3 @@ func inorderTraversal(root *TreeNode) []int {
 		return append(inorderTraversal(root.Left), append([]int{root.Val}, inorderTraversal(root.Right)...)...)
 	}
 }
-
-// @lc code=end
-

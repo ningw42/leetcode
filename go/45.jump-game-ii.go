@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=45 lang=golang
- *
- * [45] Jump Game II
- */
-
-// @lc code=start
 func jump(nums []int) int {
 	return dp(nums)
 }
@@ -42,5 +35,3 @@ func recursion(nums []int, current int) int {
 
 	return min + 1
 }
-// @lc code=end
-

@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=150 lang=golang
- *
- * [150] Evaluate Reverse Polish Notation
- */
-
-// @lc code=start
 func evalRPN(tokens []string) int {
 	var stack []int
 	var operand int
@@ -30,5 +23,3 @@ func evalRPN(tokens []string) int {
 	}
 	return stack[0]
 }
-// @lc code=end
-

@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=953 lang=golang
- *
- * [953] Verifying an Alien Dictionary
- */
-
-// @lc code=start
 var alphabet map[byte]int
 
 func isAlienSorted(words []string, order string) bool {
@@ -52,5 +45,3 @@ func min(a, b int) int {
         return b
     }
 }
-// @lc code=end
-

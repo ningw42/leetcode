@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=235 lang=golang
- *
- * [235] Lowest Common Ancestor of a Binary Search Tree
- */
-
-// @lc code=start
 /**
  * Definition for TreeNode.
  * type TreeNode struct {
@@ -40,5 +33,3 @@ func containsPQ(root, p, q *TreeNode) (bool, bool) {
 		return P, Q
 	}
 }
-// @lc code=end
-

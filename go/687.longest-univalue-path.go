@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=687 lang=golang
- *
- * [687] Longest Univalue Path
- */
-
-// @lc code=start
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
@@ -57,6 +50,3 @@ func getLength(root *TreeNode) int {
 
 	return length
 }
-
-// @lc code=end
-

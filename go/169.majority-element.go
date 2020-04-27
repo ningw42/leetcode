@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=169 lang=golang
- *
- * [169] Majority Element
- */
-
-// @lc code=start
 func majorityElement(nums []int) int {
 	counts := make(map[int]int)
 	var num, count int
@@ -22,6 +15,3 @@ func majorityElement(nums []int) int {
 	}
 	return num
 }
-
-// @lc code=end
-

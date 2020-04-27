@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=190 lang=golang
- *
- * [190] Reverse Bits
- */
-
-// @lc code=start
 func reverseBits(num uint32) uint32 {
 	var ret, digitWeight uint32
 	digitWeight = 0x80000000
@@ -18,6 +11,3 @@ func reverseBits(num uint32) uint32 {
 
 	return ret
 }
-
-// @lc code=end
-

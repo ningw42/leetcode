@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=125 lang=golang
- *
- * [125] Valid Palindrome
- */
-
-// @lc code=start
 func isPalindrome(s string) bool {
 	var left, right byte
 	for i, j := 0, len(s)-1; i < j; {
@@ -41,5 +34,3 @@ func makeRegular(c byte) byte {
 		return c
 	}
 }
-// @lc code=end
-

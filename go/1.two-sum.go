@@ -31,7 +31,6 @@ func twoSum(nums []int, target int) []int {
 	return twoSumMap(nums, target)
 }
 
-// O(n)
 func twoSumMap(nums []int, target int) []int {
 	m := make(map[int]int)
 
@@ -47,7 +46,6 @@ func twoSumMap(nums []int, target int) []int {
 	return []int{}
 }
 
-// O(n^2)
 func twoSumNaive(nums []int, target int) []int {
 	length := len(nums)
 	for i := 0; i < length; i++ {

@@ -18,17 +18,14 @@ func reference(board [][]byte) {
 		escaped = append(escaped, make([]bool, len(row)))
 	}
 
-	// step 1
 	for i, row := range board {
 		for j, _ := range row {
 			if i == 0 || i == len(board) - 1 || j == 0 || j == len(row) - 1 {
-				// step 2
 				markAsEscaped(board, escaped, i, j)
 			}
 		}
 	}
 
-	// step 3
 	for i, row := range board {
 		for j, c := range row {
 			if c == 'O' && !escaped[i][j] {

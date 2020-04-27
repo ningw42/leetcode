@@ -1,8 +1,3 @@
-/*
- * @lc app=leetcode id=25 lang=golang
- *
- * [25] Reverse Nodes in k-Group
- */
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -10,7 +5,7 @@
  *     Next *ListNode
  * }
  */
- func reverseKGroup(head *ListNode, k int) *ListNode {
+func reverseKGroup(head *ListNode, k int) *ListNode {
     var last, cursor, current, prev *ListNode
     var count int
     
@@ -48,5 +43,3 @@
     
     return head
 }
-
-

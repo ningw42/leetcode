@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=66 lang=golang
- *
- * [66] Plus One
- */
-
-// @lc code=start
 func plusOne(digits []int) []int {
 	var carry, digit int
 	carry = 1
@@ -24,5 +17,3 @@ func plusOne(digits []int) []int {
 
 	return digits
 }
-// @lc code=end
-

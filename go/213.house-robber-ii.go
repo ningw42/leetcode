@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=213 lang=golang
- *
- * [213] House Robber II
- */
-
-// @lc code=start
 func rob(nums []int) int {
 	if len(nums) == 0 {
 		return 0
@@ -49,6 +42,3 @@ func helper(nums []int) int {
 
 	return results[len(nums)-1]
 }
-
-// @lc code=end
-

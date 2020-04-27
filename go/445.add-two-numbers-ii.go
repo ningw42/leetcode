@@ -15,7 +15,6 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 }
 
 func NonReverse(l1, l2 *ListNode) *ListNode {
-	// TODO
 	return nil
 }
 

@@ -10,7 +10,7 @@ func numJewelsInStones(J string, S string) int {
 			stones[c] = 1
 		}
 	}
-
+    
 	for _, r := range J {
 		c := byte(r)
 		ret += stones[c]

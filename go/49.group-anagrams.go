@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=49 lang=golang
- *
- * [49] Group Anagrams
- */
-
-// @lc code=start
 
 type Bytes []byte
 func (b Bytes) Len() int {
@@ -32,5 +25,3 @@ func groupAnagrams(strs []string) [][]string {
 	}
 	return ret
 }
-// @lc code=end
-

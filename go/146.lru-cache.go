@@ -1,9 +1,4 @@
-/*
- * @lc app=leetcode id=146 lang=golang
- *
- * [146] LRU Cache
- */
- type Node struct {
+type Node struct {
     Key   int
     Value int
     Prev  *Node
@@ -72,11 +67,9 @@ func (this *LRUCache) moveToHead(node *Node) {
         node.Prev, node.Next, this.head.Next, this.head.Next.Prev = this.head, this.head.Next, node, node
 }
 
-
 /**
  * Your LRUCache object will be instantiated and called as such:
  * obj := Constructor(capacity);
  * param_1 := obj.Get(key);
  * obj.Put(key,value);
  */
-

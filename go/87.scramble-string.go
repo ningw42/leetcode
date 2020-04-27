@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=87 lang=golang
- *
- * [87] Scramble String
- */
-
-// @lc code=start
 func isScramble(s1 string, s2 string) bool {
 	if len(s1) != len(s2) {
 		return false
@@ -24,14 +17,12 @@ func checkScramble(s1 string, s2 string) bool {
 		return s1 == s2 || (s1[0] == s2[1] && s1[1] == s2[0])
 	} else {
 		for i := 1; i < len(s1); i++ {
-			// doesn't switch on current root 
 			if shareSameDistributionForSameSide(s1, s2, i) {
 				if checkScramble(s1[:i], s2[:i]) && checkScramble(s1[i:], s2[i:]) {
 					return true
 				}
 			}
-			// switches on current root
-			if shareSameDistributionForOppositeSite(s1, s2, i) {
+			if shareSameDistributionForOppositeSide(s1, s2, i) {
 				if checkScramble(s1[:i], s2[len(s2)-i:]) && checkScramble(s1[i:], s2[:len(s2)-i]) {
 					return true
 				}
@@ -45,7 +36,7 @@ func shareSameDistributionForSameSide(s1, s2 string, i int) bool {
 	return shareSameDistribution(getDistribution(s1[i:]), getDistribution(s2[i:])) && shareSameDistribution(getDistribution(s1[:i]), getDistribution(s2[:i]))
 }
 
-func shareSameDistributionForOppositeSite(s1, s2 string, i int) bool {
+func shareSameDistributionForOppositeSide(s1, s2 string, i int) bool {
 	return shareSameDistribution(getDistribution(s1[i:]), getDistribution(s2[:len(s2)-i])) && shareSameDistribution(getDistribution(s1[:i]), getDistribution(s2[len(s2)-i:]))
 }
 
@@ -68,5 +59,3 @@ func getDistribution(s string) map[byte]int {
 	}
 	return m
 }
-// @lc code=end
-

@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=93 lang=golang
- *
- * [93] Restore IP Addresses
- */
-
-// @lc code=start
 var ips []string
 func restoreIpAddresses(s string) []string {
 	ips = nil
@@ -29,5 +22,3 @@ func restore(s []byte, segments []string) {
 		restore(s[3:], append(segments, string(s[0:3])))
 	}
 }
-// @lc code=end
-

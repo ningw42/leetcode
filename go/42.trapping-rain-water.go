@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=42 lang=golang
- *
- * [42] Trapping Rain Water
- */
-
-// @lc code=start
 func trap(height []int) int {
 	// find local peak
 	var peak []int
@@ -30,17 +23,17 @@ func trap(height []int) int {
 
 	fmt.Println(peak)
 	// remove non-edge local peak
-	var removal bool
+	var removed bool
 	for {
-		removal = false
+		removed = false
 		for i := 1; i < len(peak)-1; i++ {
 			if height[peak[i]] <= height[peak[i-1]] && height[peak[i]] <= height[peak[i+1]] {
 				peak = append(peak[:i], peak[i+1:]...)
-				removal = true
+				removed = true
 				break
 			}
 		}
-		if !removal {
+		if !removed {
 			break
 		}
 	}
@@ -69,5 +62,3 @@ func min(a, b int) int {
 		return b
 	}
 }
-// @lc code=end
-

@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=131 lang=golang
- *
- * [131] Palindrome Partitioning
- */
-
-// @lc code=start
 var partitions [][]string
 func partition(s string) [][]string {
 	partitions = nil
@@ -40,5 +33,3 @@ func isPalindrome(s []byte) bool {
 	}
 	return true
 }
-// @lc code=end
-

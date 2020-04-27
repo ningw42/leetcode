@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=1192 lang=golang
- *
- * [1192] Critical Connections in a Network
- */
-
-// @lc code=start
 var id int
 var bridges [][]int
 var visited []bool
@@ -65,5 +58,3 @@ func minInt(a, b int) int {
 		return a
 	}
 }
-// @lc code=end
-

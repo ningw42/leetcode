@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=329 lang=golang
- *
- * [329] Longest Increasing Path in a Matrix
- */
-
-// @lc code=start
 func longestIncreasingPath(matrix [][]int) int {
 	var result [][]int
 	for _, row := range matrix {
@@ -49,6 +42,3 @@ func find(matrix, result [][]int, i, j int) int {
 
 	return result[i][j]
 }
-
-// @lc code=end
-

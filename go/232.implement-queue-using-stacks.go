@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=232 lang=golang
- *
- * [232] Implement Queue using Stacks
- */
-
-// @lc code=start
 type MyQueue struct {
     in []int
     out []int
@@ -64,5 +57,3 @@ func (this *MyQueue) Empty() bool {
  * param_3 := obj.Peek();
  * param_4 := obj.Empty();
  */
-// @lc code=end
-

@@ -1,14 +1,3 @@
-import (
-	"container/heap"
-)
-
-/*
- * @lc app=leetcode id=75 lang=golang
- *
- * [75] Sort Colors
- */
-
-// @lc code=start
 
 // 1. two pass, count all [0, 1, 2], and overide with order
 // 2. heap sort
@@ -40,6 +29,3 @@ func sortColors(nums []int) {
 		nums[i] = max
 	}
 }
-
-// @lc code=end
-

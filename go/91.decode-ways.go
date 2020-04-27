@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=91 lang=golang
- *
- * [91] Decode Ways
- */
-
-// @lc code=start
 func numDecodings(s string) int {
 	var result int
 	results := make([]int, len(s))
@@ -50,6 +43,3 @@ func numDecodings(s string) int {
 
 	return results[len(s)-1]
 }
-
-// @lc code=end
-

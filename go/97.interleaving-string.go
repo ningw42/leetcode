@@ -1,14 +1,3 @@
-/*
- * @lc app=leetcode id=97 lang=golang
- *
- * [97] Interleaving String
- */
-
-// @lc code=start
-
-// dynamic programming
-// there is no need to keey the entire results matrix
-// just a col/row should do the job
 func isInterleave(s1 string, s2 string, s3 string) bool {
 	if len(s1) + len(s2) != len(s3) {
 		return false
@@ -29,6 +18,8 @@ func isInterleave(s1 string, s2 string, s3 string) bool {
 	for j := 0; j <= len(s2); j++ {
 		results2[j] = map[string]bool{s2[:j]:true}
 	}
+	// fmt.Println(results1)
+	// fmt.Println(results2)
 	for i := 1; i <= len(s1); i++ {
 		for j := 1; j <= len(s2); j++ {
 			result := make(map[string]bool)
@@ -51,6 +42,7 @@ func isInterleave(s1 string, s2 string, s3 string) bool {
 		}
 	}
 
+	// fmt.Println(results2)
 	_, exists := results2[len(s2)][s3]
 	return exists
 }
@@ -75,5 +67,3 @@ func interleave(s1, s2, target string) bool {
 	}
 	return false
 }
-// @lc code=end
-

@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=187 lang=golang
- *
- * [187] Repeated DNA Sequences
- */
-
-// @lc code=start
 func findRepeatedDnaSequences(s string) []string {
 	count := make(map[string]int)
 	var repeated []string
@@ -18,6 +11,3 @@ func findRepeatedDnaSequences(s string) []string {
 
 	return repeated
 }
-
-// @lc code=end
-

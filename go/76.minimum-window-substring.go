@@ -1,66 +1,42 @@
-import "math"
-
-/*
- * @lc app=leetcode id=76 lang=golang
- *
- * [76] Minimum Window Substring
- */
-
-// @lc code=start
 func minWindow(s string, t string) string {
-	tCount := count(t)
-	sCount := make(map[byte]int)
+    // make a map of required chars
+    required := make(map[byte]int)
+    for i := 0; i < len(t); i++ {
+        required[t[i]]++
+    }
+    // make a map of included chars
+    included := make(map[byte]int)
+    
+    numberOfDistinctRequiredChars := len(required)
+    numberOfDistinctMeetChars := 0
+    
+    // two pointer to find min length
+    var i, j, minLen, begin int
+    minLen = math.MaxInt32
+    for j < len(s) {
+        // expand right side of window to meet the requirement
+        included[s[j]]++
+        if included[s[j]] == required[s[j]] {
+            numberOfDistinctMeetChars++
+        }
+        // shrink left side of window to find a smaller length
+        for i <= j && numberOfDistinctMeetChars == numberOfDistinctRequiredChars {
+            if length := j - i + 1; length < minLen {
+                minLen = length
+                begin = i
+            }
+            included[s[i]]--
+            if included[s[i]] < required[s[i]] {
+                numberOfDistinctMeetChars--
+            }
+            i++
+        }
+        j++
+    }
 
-	start := 0
-	length := math.MaxInt32
-	begin := 0
-	end := 0
-	for end < len(s) {
-		// find a valid window
-		sCount[s[end]]++
-		// shink the left side of window until the window
-		// no longer satisfies the condition
-		for satisfy(sCount, tCount) {
-			// if new valid window satisfies the condition
-			// and its length is smaller previous shortest window
-			if l := end - begin; l < length {
-				start = begin
-				length = l
-			}
-			sCount[s[begin]]--
-			begin++
-		}
-		end++
-	}
-
-	if length == math.MaxInt32 {
-		return ""
-	} else {
-		return s[start : start+length+1]
-	}
+    if minLen == math.MaxInt32 {
+        return ""
+    } else {
+        return s[begin:begin+minLen]
+    }
 }
-
-func satisfy(source, target map[byte]int) bool {
-	for b, c := range target {
-		if source[b] < c {
-			return false
-		}
-	}
-	return true
-}
-
-func count(s string) map[byte]int {
-	ret := make(map[byte]int)
-	for _, r := range s {
-		c := byte(r)
-		if _, exists := ret[c]; exists {
-			ret[c]++
-		} else {
-			ret[c] = 1
-		}
-	}
-	return ret
-}
-
-// @lc code=end
-

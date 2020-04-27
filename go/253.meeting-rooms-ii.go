@@ -7,22 +7,17 @@ func minMeetingRooms(intervals [][]int) int {
     var roomsCount int
     for _, interval := range intervals {
         if roomsCount == 0 {
-			// the very first iteration
             heap.Push(roomInUse, interval)
             roomsCount++
         } else {
             if roomInUse.Len() < roomsCount {
-				// there are rooms available
                 heap.Push(roomInUse, interval)
             } else {
-				// there is no room available
                 firstRoomToRelease := (*roomInUse)[0]
                 if firstRoomToRelease[1] > interval[0] {
-					// all rooms are in use
                     heap.Push(roomInUse, interval)
                     roomsCount++
                 } else {
-					// some rooms are not in use
                     for firstRoomToRelease[1] <= interval[0] {
                         heap.Pop(roomInUse)
                         if roomInUse.Len() == 0 {

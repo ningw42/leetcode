@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=508 lang=golang
- *
- * [508] Most Frequent Subtree Sum
- */
-
-// @lc code=start
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
@@ -54,5 +47,3 @@ func addSum(sum int) {
 		frequentSums = append(frequentSums, sum)
 	}
 }
-// @lc code=end
-

@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=52 lang=golang
- *
- * [52] N-Queens II
- */
-
-// @lc code=start
 var count int
 func totalNQueens(n int) int {
 	count = 0
@@ -37,5 +30,3 @@ func calculateConflictPositions(queens [][]int, n int) map[int]bool {
 	}
 	return conflicts
 }
-// @lc code=end
-

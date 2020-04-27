@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=77 lang=golang
- *
- * [77] Combinations
- */
-
-// @lc code=start
 
 var result [][]int
 func combine(n int, k int) [][]int {
@@ -30,5 +23,3 @@ func makeSliceCopy(s []int) []int {
 	}
 	return copy
 }
-// @lc code=end
-

@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=58 lang=golang
- *
- * [58] Length of Last Word
- */
-
-// @lc code=start
 func lengthOfLastWord(s string) int {
 	begin := -1
 	end := math.MaxInt64
@@ -27,5 +20,3 @@ func lengthOfLastWord(s string) int {
 
 	return end - begin
 }
-// @lc code=end
-

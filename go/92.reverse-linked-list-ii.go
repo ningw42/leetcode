@@ -1,8 +1,3 @@
-/*
- * @lc app=leetcode id=92 lang=golang
- *
- * [92] Reverse Linked List II
- */
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -10,7 +5,7 @@
  *     Next *ListNode
  * }
  */
- func reverseBetween(head *ListNode, m int, n int) *ListNode {
+func reverseBetween(head *ListNode, m int, n int) *ListNode {
     if m == n {
         return head
     }

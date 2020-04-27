@@ -1,12 +1,3 @@
-import "bytes"
-
-/*
- * @lc app=leetcode id=500 lang=golang
- *
- * [500] Keyboard Row
- */
-
-// @lc code=start
 func findWords(words []string) []string {
 	row := [][]byte{
 		[]byte("qwertyuiop"),
@@ -39,6 +30,3 @@ func findWords(words []string) []string {
 
 	return ret
 }
-
-// @lc code=end
-

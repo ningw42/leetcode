@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=221 lang=golang
- *
- * [221] Maximal Square
- */
-
-// @lc code=start
 func maximalSquare(matrix [][]byte) int {
 	if len(matrix) == 0 {
 		return 0
@@ -58,6 +51,3 @@ func maximalSquare(matrix [][]byte) int {
 
 	return max * max
 }
-
-// @lc code=end
-

@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=37 lang=golang
- *
- * [37] Sudoku Solver
- */
-
-// @lc code=start
 
 const ALL = 0x1FF
 var bitmap map[byte]int
@@ -85,5 +78,3 @@ func buildBitMap() {
 		bitmap[byte(i) + '0'] = ALL ^ (1<<(i-1))
 	}
 }
-// @lc code=end
-

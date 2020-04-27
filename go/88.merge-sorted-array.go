@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=88 lang=golang
- *
- * [88] Merge Sorted Array
- */
-
-// @lc code=start
 func merge(nums1 []int, m int, nums2 []int, n int) {
 	var i, j int
 	for i < m + j && j < n {
@@ -28,5 +21,3 @@ func merge(nums1 []int, m int, nums2 []int, n int) {
 		j++
 	}
 }
-// @lc code=end
-

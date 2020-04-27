@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=230 lang=golang
- *
- * [230] Kth Smallest Element in a BST
- */
-
-// @lc code=start
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
@@ -28,24 +21,10 @@ func iteration(root *TreeNode, k int) int {
 		root = stack[len(stack)-1]
 		stack = stack[:len(stack)-1]
 		if count == k-1 {
-			return root.Val
+            break
 		}
 		root = root.Right
 		count++
 	}
+    return root.Val
 }
-
-func recursive(root *TreeNode, k int) int {
-	ordered := inorder(root)
-	return ordered[k-1]
-}
-
-func inorder(root *TreeNode) []int {
-	if root == nil {
-		return []int{}
-	} else {
-		return append(inorder(root.Left), append([]int{root.Val}, inorder(root.Right)...)...)
-	}
-}
-// @lc code=end
-

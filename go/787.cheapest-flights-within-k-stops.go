@@ -1,12 +1,3 @@
-import "math"
-
-/*
- * @lc app=leetcode id=787 lang=golang
- *
- * [787] Cheapest Flights Within K Stops
- */
-
-// @lc code=start
 
 type Graph struct {
 	Edges map[int]map[int]int
@@ -123,6 +114,3 @@ func DFS(g *Graph, src, dst, k int) int {
 
 	return min
 }
-
-// @lc code=end
-

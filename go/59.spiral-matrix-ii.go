@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=59 lang=golang
- *
- * [59] Spiral Matrix II
- */
-
-// @lc code=start
 
 const GoRight int = 0
 const GoDown int = 1
@@ -60,5 +53,3 @@ func generateMatrix(n int) [][]int {
 
 	return matrix
 }
-// @lc code=end
-

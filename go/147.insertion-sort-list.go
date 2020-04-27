@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=147 lang=golang
- *
- * [147] Insertion Sort List
- */
-
-// @lc code=start
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -29,5 +22,3 @@ func insertionSortList(head *ListNode) *ListNode {
 	}
 	return dummy.Next
 }
-// @lc code=end
-

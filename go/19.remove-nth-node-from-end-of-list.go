@@ -11,33 +11,33 @@
  * }
  */
 func removeNthFromEnd(head *ListNode, n int) *ListNode {
-	if n == 0 {
-		return head
-	}
-	
-	stash := make([]*ListNode, 0)
-
-	current := head
-	for current != nil {
-		stash = append(stash, current)
-		current = current.Next
-	}
-
-	length := len(stash)
-	if length == 0 {
-		return nil
-	} else if length == 1 {
-		return nil
-	} else {
-		if n == 1 {
-			stash[length - 2].Next = nil
-			return head
-		} else if n >= length {
-			return head.Next
-		} else {
-			stash[length - n - 1].Next = stash[length - n + 1]
-			return head
-		}
-	}
+    // create a dummy head node with Next point to head
+    // two pointers p1 and p2 point to dummy head
+    // p1 moves n steps further
+    // then move both p1 and p2
+    // when p1 reaches the end
+    // p2 is the previous node of the target node
+    
+    if head == nil {
+        return nil
+    }
+    
+    dummy := &ListNode{Next: head}
+    var p1, p2 *ListNode
+    p1 = dummy
+    p2 = dummy
+    
+    for i := 0; i < n; i++ {
+        p1 = p1.Next
+    }
+    
+    for p1.Next != nil {
+        p1 = p1.Next
+        p2 = p2.Next
+    }
+   
+    p2.Next = p2.Next.Next
+    
+    return dummy.Next
 }
 

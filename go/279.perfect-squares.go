@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=279 lang=golang
- *
- * [279] Perfect Squares
- */
-
-// @lc code=start
 func numSquares(n int) int {
 	upper := int(math.Floor(math.Sqrt(float64(n))))
 	var squareNumbers []int
@@ -28,5 +21,3 @@ func numSquares(n int) int {
 
 	return results[n]
 }
-// @lc code=end
-

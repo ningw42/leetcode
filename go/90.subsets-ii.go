@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=90 lang=golang
- *
- * [90] Subsets II
- */
-
-// @lc code=start
 var subsets [][]int
 func subsetsWithDup(nums []int) [][]int {
 	subsets = nil
@@ -43,5 +36,3 @@ func removeElementFromSlice(s []int, i int) []int {
 	var copy []int
 	return append(append(copy, s[0:i]...), s[i+1:]...)
 }
-// @lc code=end
-

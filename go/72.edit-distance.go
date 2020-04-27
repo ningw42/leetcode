@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=72 lang=golang
- *
- * [72] Edit Distance
- */
-
-// @lc code=start
 func minDistance(word1 string, word2 string) int {
 	var mat [][]int
 	for i := 0; i <= len(word1); i++ {
@@ -37,6 +30,3 @@ func minDistance(word1 string, word2 string) int {
 
 	return mat[len(word1)][len(word2)]
 }
-
-// @lc code=end
-

@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=128 lang=golang
- *
- * [128] Longest Consecutive Sequence
- */
-
-// @lc code=start
 func longestConsecutive(nums []int) int {
 	sequence := make(map[int][]int)
 	done := make(map[int]bool)
@@ -38,9 +31,10 @@ func longestConsecutive(nums []int) int {
 		}
 		right = cursor - 1
 
-		// write down result
+		// write result
 		sequence[num] = []int{left, right}
 	}
+	// fmt.Println(sequence)
 	maxLength := 0
 	for _, interval := range sequence {
 		if length := interval[1] - interval[0] + 1; length > maxLength {
@@ -49,5 +43,3 @@ func longestConsecutive(nums []int) int {
 	}
 	return maxLength
 }
-// @lc code=end
-

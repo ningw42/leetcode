@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=73 lang=golang
- *
- * [73] Set Matrix Zeroes
- */
-
-// @lc code=start
 func setZeroes(matrix [][]int) {
 	for i := 0; i < len(matrix); i++ {
 		for j := 0; j < len(matrix[0]); j++ {
@@ -23,5 +16,3 @@ func setZero(matrix [][]int, i, j int) {
 		matrix[i][y] = 0
 	}
 }
-// @lc code=end
-

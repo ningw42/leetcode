@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=139 lang=golang
- *
- * [139] Word Break
- */
-
-// @lc code=start
 func wordBreak(s string, wordDict []string) bool {
 	dict := make(map[string]bool)
 	for _, word := range wordDict {
@@ -24,5 +17,3 @@ func wordBreak(s string, wordDict []string) bool {
 
 	return result[len(s)-1]
 }
-// @lc code=end
-

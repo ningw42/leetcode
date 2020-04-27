@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=54 lang=golang
- *
- * [54] Spiral Matrix
- */
-
-// @lc code=start
 
 const GoRight int = 0
 const GoDown int = 1
@@ -82,5 +75,3 @@ func traversal(matrix [][]int, i, j, direction int) []int {
 
 	return append(row, traversal(matrix, x, y, (direction+1)%4)...)
 }
-// @lc code=end
-

@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=38 lang=golang
- *
- * [38] Count and Say
- */
-
-// @lc code=start
 func countAndSay(n int) string {
 	seq := []byte{'1'}
 	for i := 1; i < n; i++ {
@@ -34,6 +27,3 @@ func say(seq []byte) []byte {
 
 	return ret
 }
-
-// @lc code=end
-

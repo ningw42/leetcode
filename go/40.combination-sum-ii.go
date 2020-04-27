@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=40 lang=golang
- *
- * [40] Combination Sum II
- */
-
-// @lc code=start
 
 var result [][]int
 
@@ -36,5 +29,3 @@ func makeSliceCopy(s []int) []int {
 	}
 	return copy
 }
-// @lc code=end
-

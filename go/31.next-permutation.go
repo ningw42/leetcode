@@ -1,10 +1,22 @@
-/*
- * @lc app=leetcode id=31 lang=golang
- *
- * [31] Next Permutation
- */
 
-// @lc code=start
+// type LexicographicalInts []int
+
+// func (s LexicographicalInts) Len() int {
+// 	return len(s)
+// }
+// func (s LexicographicalInts) Swap(i, j int) {
+// 	s[i], s[j] = s[j], s[i]
+// }
+// func (s LexicographicalInts) Less(i, j int) bool {
+// 	ii := strconv.Itoa(s[i])
+// 	jj := strconv.Itoa(s[j])
+
+// 	return CompareTo(ii, jj) < 0
+// }
+// // Java's String.compareTo
+// func CompareTo(a, b string) int {
+
+// }
 
 func nextPermutation(nums []int) {
 	if len(nums) <= 1 {
@@ -44,5 +56,3 @@ func reverseInPlace(nums sort.IntSlice) {
 		nums.Swap(i, nums.Len() - 1 - i)
 	}
 }
-// @lc code=end
-

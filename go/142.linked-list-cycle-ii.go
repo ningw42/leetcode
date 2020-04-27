@@ -1,8 +1,3 @@
-/*
- * @lc app=leetcode id=142 lang=golang
- *
- * [142] Linked List Cycle II
- */
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -11,15 +6,34 @@
  * }
  */
 func detectCycle(head *ListNode) *ListNode {
-	m := make(map[*ListNode]bool)
-
-	for head != nil {
-		if _, e := m[head]; e {
-			return head
-		}
-		m[head] = true
-		head = head.Next
-	}
-	return nil
+    return twoPointers(head)
 }
 
+func twoPointers(head *ListNode) *ListNode {
+    i := findIntersection(head)
+    if i == nil {
+        return nil
+    }
+    j := head
+    for i != j {
+        i = i.Next
+        j = j.Next
+    }
+    return i
+}
+
+func findIntersection(head *ListNode) *ListNode {
+    i := head
+    j := head
+    for i != nil && j != nil {
+        i = i.Next
+        j = j.Next
+        if j != nil {
+            j = j.Next
+        }
+        if i == j {
+            return i
+        }
+    }
+    return nil
+}

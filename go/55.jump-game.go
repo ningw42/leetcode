@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=55 lang=golang
- *
- * [55] Jump Game
- */
-
-// @lc code=start
 func canJump(nums []int) bool {
 	steps := make([]int, len(nums))
 	for i := len(nums) - 2; i >= 0; i-- {
@@ -22,5 +15,3 @@ func canJump(nums []int) bool {
 	}
 	return steps[0] != math.MaxInt32 + 1
 }
-// @lc code=end
-

@@ -1,12 +1,3 @@
-import "fmt"
-
-/*
- * @lc app=leetcode id=1093 lang=golang
- *
- * [1093] Statistics from a Large Sample
- */
-
-// @lc code=start
 func sampleStats(count []int) []float64 {
 	var min, max, mean, median, mode float64
 	var total, sum, maxCount int
@@ -67,6 +58,3 @@ func sampleStats(count []int) []float64 {
 
 	return []float64{min, max, mean, median, mode}
 }
-
-// @lc code=end
-

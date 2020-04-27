@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=222 lang=golang
- *
- * [222] Count Complete Tree Nodes
- */
-
-// @lc code=start
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
@@ -20,5 +13,3 @@ func countNodes(root *TreeNode) int {
 		return countNodes(root.Left) + countNodes(root.Right) + 1
 	}
 }
-// @lc code=end
-

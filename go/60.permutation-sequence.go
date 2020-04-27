@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=60 lang=golang
- *
- * [60] Permutation Sequence
- */
-
-// @lc code=start
 func getPermutation(n int, k int) string {
 	result := make([]byte, n)
 	candidates := make([]int, n+1)
@@ -34,5 +27,3 @@ func get(result []byte, candidates, factorials []int, n, k, i int) {
 		get(result, candidates, factorials, n, remainder, i+1)
 	}
 }
-// @lc code=end
-

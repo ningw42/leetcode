@@ -1,12 +1,3 @@
-/*
- * @lc app=leetcode id=300 lang=golang
- *
- * [300] Longest Increasing Subsequence
- */
-
-// @lc code=start
-
-// TODO better time complexity
 func lengthOfLIS(nums []int) int {
 	if len(nums) == 0 {
 		return 0
@@ -40,7 +31,7 @@ func lengthOfLIS(nums []int) int {
 		lis[i] = results
 	}
 
+	// fmt.Println(lis)
+
 	return maxLength
 }
-// @lc code=end
-

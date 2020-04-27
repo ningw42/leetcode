@@ -7,17 +7,6 @@ func numDistinct(s string, t string) int {
 	return DP(s, t)
 }
 
-// consider from tail to head
-// the number of T in S is
-//   the number of T in S[1:] if T[0] != S[0]
-//   the number of T in S[1:0] + the number of T[1:0] in S[1:0] if T[0] == S[0]
-
-// example:
-// ""	g	ag	bag	gbag	bgbag	abgbag	babgbag	bbabgbag
-// ""	1	1	1	1	1		1		1		1		1
-// g	0	1	1	1	2		2		2		2		2
-// ag	0	0	1	1	1		1		3		3		3
-// bag	0	0	0	1	1		2		2		5		8
 func DP(s, t string) int {
 	var results [][]int
 	for i := 0; i <= len(t); i++ {

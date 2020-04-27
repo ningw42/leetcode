@@ -1,24 +1,12 @@
-/*
- * @lc app=leetcode id=48 lang=golang
- *
- * [48] Rotate Image
- */
-
-// @lc code=start
 func rotate(matrix [][]int) {
 	var stash int
 	for i := 0; i < len(matrix) / 2; i++ {
-		// beware of the condition 'j > i'
+		// stash top
 		for j := len(matrix)-1-i; j > i; j-- {
-			// stash top
 			stash = matrix[i][j]
-			// rotate left to top
 			matrix[i][j] = matrix[len(matrix)-1-j][i]
-			// rotate bottom to left
 			matrix[len(matrix)-1-j][i] = matrix[len(matrix)-1-i][len(matrix)-1-j]
-			// rotate right to bottom
 			matrix[len(matrix)-1-i][len(matrix)-1-j] = matrix[j][len(matrix)-1-i]
-			// rotate top to right
 			matrix[j][len(matrix)-1-i] = stash
 		}
 	}
@@ -49,6 +37,3 @@ func naive(matrix [][]int) {
 		}
 	}
 }
-
-// @lc code=end
-

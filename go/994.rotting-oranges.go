@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=994 lang=golang
- *
- * [994] Rotting Oranges
- */
-
-// @lc code=start
 func orangesRotting(grid [][]int) int {
     minutes := 0
     next := make([][]int, len(grid))
@@ -57,5 +50,3 @@ func rotting(current, next [][]int) bool {
     }
     return rotted
 }
-// @lc code=end
-

@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=859 lang=golang
- *
- * [859] Buddy Strings
- */
-
-// @lc code=start
 func buddyStrings(A string, B string) bool {
 	if len(A) != len(B) {
 		return false
@@ -42,6 +35,3 @@ func buddyStrings(A string, B string) bool {
 		return A[pos[0]] == B[pos[1]] && A[pos[1]] == B[pos[0]]
 	}
 }
-
-// @lc code=end
-

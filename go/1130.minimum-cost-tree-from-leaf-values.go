@@ -1,15 +1,7 @@
-/*
- * @lc app=leetcode id=1130 lang=golang
- *
- * [1130] Minimum Cost Tree From Leaf Values
- */
 
-// @lc code=start
-
-// S(i, j) = min(S(i, k) + S(k+1, j) + MAX(i, k) * MAX(k+1, j)) for every k with i <= k < j
+// S(i, j) = min(S(i, k) + S(k+1, j) + MAX(i, k) * MAX(k+1, j)) for every k with i < k < j
 // MAX(i, j) = max(arr[i]...arr[j])
 func mctFromLeafValues(arr []int) int {
-	// DP to calculate MAX(i,j)
 	maxs := make([][]int, len(arr))
 	for i := 0; i < len(arr); i++ {
 		maxs[i] = make([]int, len(arr))
@@ -24,7 +16,6 @@ func mctFromLeafValues(arr []int) int {
 		}
 	}
 
-	// DP to calculate S(i, j)
 	mcts := make([][]int, len(arr))
 	for i := 0; i < len(arr); i++ {
 		mcts[i] = make([]int, len(arr))
@@ -64,5 +55,3 @@ func min(a, b int) int {
 		return b
 	}
 }
-// @lc code=end
-

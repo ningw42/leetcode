@@ -1,14 +1,5 @@
-/*
- * @lc app=leetcode id=96 lang=golang
- *
- * [96] Unique Binary Search Trees
- */
-
-// @lc code=start
 
 // Catalan Number
-// dynamic programming
-// better explanation see https://leetcode.com/problems/unique-binary-search-trees/discuss/31706/Dp-problem.-10%2B-lines-with-comments
 func numTrees(n int) int {
 	result := make([]int, n+1)
 	result[0] = 1
@@ -22,6 +13,3 @@ func numTrees(n int) int {
 
 	return result[n]
 }
-
-// @lc code=end
-

@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=224 lang=golang
- *
- * [224] Basic Calculator
- */
-
-// @lc code=start
 var precedence map[byte]int
 
 func calculate(s string) int {
@@ -100,5 +93,3 @@ func isOperand(b byte) bool {
 func isOperater(b byte) bool {
 	return b == '+' || b == '-' || b == '*' || b == '/'
 }
-// @lc code=end
-

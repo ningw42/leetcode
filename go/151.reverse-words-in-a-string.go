@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=151 lang=golang
- *
- * [151] Reverse Words in a String
- */
-
-// @lc code=start
 func reverseWords(s string) string {
 	var ss []string
 	begin := -1
@@ -30,5 +23,3 @@ func reverseWords(s string) string {
 
 	return strings.Join(ss, " ")
 }
-// @lc code=end
-

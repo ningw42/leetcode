@@ -16,8 +16,8 @@ func search(nums []int, target int) int {
 			return mid
 		}
 
-		// left side is sorted
 		if nums[left] <= nums[mid] {
+			// left side is sorted
 			if nums[left] <= target && target < nums[mid] {
 				// target fits in the sorted left side
 				right = mid - 1
@@ -26,9 +26,8 @@ func search(nums []int, target int) int {
 				left = mid + 1
 			}
 		}
-
-		// right side is sorted
 		if nums[mid] <= nums[right] {
+			// right side is sorted
 			if nums[mid] < target && target <= nums[right] {
 				// target fits in the sorted right side
 				left = mid + 1

@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=127 lang=golang
- *
- * [127] Word Ladder
- */
-
-// @lc code=start
 // copied from 126.word ladder ii
 func ladderLength(beginWord string, endWord string, wordList []string) int {
 	// misc preparation
@@ -123,5 +116,3 @@ func makeSliceCopy(s []int) []int {
 	}
 	return copy
 }
-// @lc code=end
-

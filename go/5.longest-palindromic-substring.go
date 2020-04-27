@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=5 lang=golang
- *
- * [5] Longest Palindromic Substring
- */
-
-// @lc code=start
 func longestPalindrome(s string) string {
 	// there is algorighm with time complexity O(n)
 	// see https://www.google.com/search?q=Manacher
@@ -65,6 +58,3 @@ func BruteForce(s string) string {
 
 	return result
 }
-
-// @lc code=end
-

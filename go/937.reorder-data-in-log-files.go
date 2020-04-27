@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=937 lang=golang
- *
- * [937] Reorder Data in Log Files
- */
-
-// @lc code=start
 func reorderLogFiles(logs []string) []string {
 	var slogs [][]string
 	var dlogs []string
@@ -46,5 +39,3 @@ func parse(s string) []string {
 	space := strings.IndexByte(s, ' ')
 	return []string{s[:space], s[space+1:]}
 }
-// @lc code=end
-

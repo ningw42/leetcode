@@ -1,12 +1,3 @@
-import "container/heap"
-
-/*
- * @lc app=leetcode id=451 lang=golang
- *
- * [451] Sort Characters By Frequency
- */
-
-// @lc code=start
 
 var count map[byte]int
 
@@ -63,6 +54,3 @@ func frequencySort(s string) string {
 
 	return string(result)
 }
-
-// @lc code=end
-

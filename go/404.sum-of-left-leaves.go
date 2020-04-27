@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=404 lang=golang
- *
- * [404] Sum of Left Leaves
- */
-
-// @lc code=start
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
@@ -37,6 +30,3 @@ func sumup(r *TreeNode, l bool) int {
 		}
 	}
 }
-
-// @lc code=end
-

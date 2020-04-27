@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=8 lang=golang
- *
- * [8] String to Integer (atoi)
- */
-
-// @lc code=start
 func myAtoi(str string) int {
 	var chars []byte
 	var minus bool
@@ -28,7 +21,6 @@ func myAtoi(str string) int {
 	for _, r := range str {
 		char := byte(r)
 		if char == '0' {
-			// remove leading '0'
 			if chars != nil {
 				chars = append(chars, char)
 			}
@@ -68,5 +60,3 @@ func myAtoi(str string) int {
 		return sum
 	}
 }
-// @lc code=end
-

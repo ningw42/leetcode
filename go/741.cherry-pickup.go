@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=741 lang=golang
- *
- * [741] Cherry Pickup
- */
-
-// @lc code=start
 func cherryPickup(grid [][]int) int {
 	n := len(grid)
 	results := make([][][]int, n + 1)
@@ -53,5 +46,3 @@ func maxInt(a, b int) int {
 		return b
 	}
 }
-// @lc code=end
-

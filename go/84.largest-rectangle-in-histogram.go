@@ -4,11 +4,7 @@
  * [84] Largest Rectangle in Histogram
  */
 func largestRectangleArea(heights []int) int {
-	return MonotoneStack(heights)
-}
-
-func MonotoneStack(heights []int) int {
-	left := make([]int, len(heights))
+    left := make([]int, len(heights))
     right := make([]int, len(heights))
     var stack []int
     for i, h := range heights {
@@ -46,7 +42,7 @@ func MonotoneStack(heights []int) int {
     return max
 }
 
-func BruteForce(heights []int) int {
+func bruteForce(heights []int) int {
 	max := 0
     for i := 0; i < len(heights); i++ {
 		height := heights[i]

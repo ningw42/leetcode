@@ -1,19 +1,7 @@
-import (
-	"math"
-)
-
-/*
- * @lc app=leetcode id=1104 lang=golang
- *
- * [1104] Path In Zigzag Labelled Binary Tree
- */
-
-// @lc code=start
 func pathInZigZagTree(label int) []int {
 	var targetIndex int
 	tree := []int{0}
 	for i := 1; true; i++ {
-		// build tree
 		lower := int(math.Pow(2, float64(i-1)))
 		upper := int(math.Pow(2, float64(i)))
 		layer := make([]int, lower)
@@ -39,7 +27,6 @@ func pathInZigZagTree(label int) []int {
 		tree = append(tree, layer...)
 	}
 
-	// retrieve path element
 	var reversed []int
 	for targetIndex >= 1 {
 		reversed = append(reversed, tree[targetIndex])
@@ -51,6 +38,3 @@ func pathInZigZagTree(label int) []int {
 
 	return reversed
 }
-
-// @lc code=end
-

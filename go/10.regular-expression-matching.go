@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=10 lang=golang
- *
- * [10] Regular Expression Matching
- */
-
-// @lc code=start
 func isMatch(s string, p string) bool {
 	return match(s, p)
 }
@@ -67,5 +60,3 @@ func nextToken(s string) string {
 		return s[:1]
 	}
 }
-// @lc code=end
-

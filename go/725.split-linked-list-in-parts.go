@@ -1,12 +1,3 @@
-import "fmt"
-
-/*
- * @lc app=leetcode id=725 lang=golang
- *
- * [725] Split Linked List in Parts
- */
-
-// @lc code=start
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -79,6 +70,3 @@ func distribute(length int, k int) []int {
 
 	return ret
 }
-
-// @lc code=end
-

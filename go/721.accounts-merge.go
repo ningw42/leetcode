@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=721 lang=golang
- *
- * [721] Accounts Merge
- */
-
-// @lc code=start
 func accountsMerge(accounts [][]string) [][]string {
 	var mails []string
 	var mailBelongTo []int
@@ -78,5 +71,3 @@ func find(sets []int, id int) int {
 func union(sets []int, a, b int) {
 	sets[a] = b
 }
-// @lc code=end
-

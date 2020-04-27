@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=103 lang=golang
- *
- * [103] Binary Tree Zigzag Level Order Traversal
- */
-
-// @lc code=start
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
@@ -42,6 +35,3 @@ func Traversal(root *TreeNode, level int, m map[int][]int) {
 		}
 	}
 }
-
-// @lc code=end
-

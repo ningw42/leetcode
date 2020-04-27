@@ -1,8 +1,3 @@
-/*
- * @lc app=leetcode id=237 lang=golang
- *
- * [237] Delete Node in a Linked List
- */
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -11,13 +6,10 @@
  * }
  */
 func deleteNode(node *ListNode) {
-	var prev *ListNode
-	for node.Next != nil {
-		node.Val = node.Next.Val
-		prev = node
-		node = node.Next
-	}
-
-	prev.Next = nil
+    // since node will not be the tail
+    // we can copy the next node's value to node
+    // and delete the next node
+    // O(1)
+    node.Val = node.Next.Val
+    node.Next = node.Next.Next
 }
-

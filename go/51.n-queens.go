@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=51 lang=golang
- *
- * [51] N-Queens
- */
-
-// @lc code=start
 var solutions [][][]int
 func solveNQueens(n int) [][]string {
 	solutions = nil
@@ -71,5 +64,3 @@ func calculateConflictPositions(queens [][]int, n int) map[int]bool {
 	}
 	return conflicts
 }
-// @lc code=end
-

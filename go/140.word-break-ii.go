@@ -1,13 +1,18 @@
-/*
- * @lc app=leetcode id=140 lang=golang
- *
- * [140] Word Break II
- */
 
-// @lc code=start
+// naive backtracking wont work, time limit exceeded
+// dynamic programming
 
-// naive DFS wont work, time limit exceeded
-// DFS with memorization
+// type Strings []string
+// func (s Strings) Len() int {
+// 	return len(s)
+// }
+// func (s Strings) Less(i, j int) bool {
+// 	return len(s[i]) > len(s[j])
+// }
+// func (s Strings) Swap(i, j int) {
+// 	s[i], s[j] = s[j], s[i]
+// }
+
 func wordBreak(s string, wordDict []string) []string {
 	return DFS(s, wordDict, map[string][]string{"":[]string{""}})
 }
@@ -72,5 +77,3 @@ func canBreakDP(s string, dict map[string]bool) bool {
 
 	return result[len(s)-1]
 }
-// @lc code=end
-

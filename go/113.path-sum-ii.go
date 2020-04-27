@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=113 lang=golang
- *
- * [113] Path Sum II
- */
-
-// @lc code=start
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
@@ -43,5 +36,3 @@ func pathSum(root *TreeNode, sum int) [][]int {
 		}
 	} 
 }
-// @lc code=end
-

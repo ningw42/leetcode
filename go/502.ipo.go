@@ -1,14 +1,3 @@
-import (
-	"container/heap"
-)
-
-/*
- * @lc app=leetcode id=502 lang=golang
- *
- * [502] IPO
- */
-
-// @lc code=start
 
 type Project struct {
 	Profit  int
@@ -88,6 +77,3 @@ func findMaximizedCapital(k int, W int, Profits []int, Capital []int) int {
 
 	return W
 }
-
-// @lc code=end
-

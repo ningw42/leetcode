@@ -39,7 +39,6 @@ func NewGraph(n int) *Graph {
 }
 
 // construct a directed map, then apply topological sort
-// be aware of the invalid word sequence
 func alienOrder(words []string) string {
     chars, mapping := getMapping(words)
     // one char

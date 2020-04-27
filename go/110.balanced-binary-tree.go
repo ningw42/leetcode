@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=110 lang=golang
- *
- * [110] Balanced Binary Tree
- */
-
-// @lc code=start
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
@@ -40,5 +33,3 @@ func getHeight(root *TreeNode) (int, bool) {
 		return height, balanced
 	}
 }
-// @lc code=end
-

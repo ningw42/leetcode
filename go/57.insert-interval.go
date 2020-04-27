@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=57 lang=golang
- *
- * [57] Insert Interval
- */
-
-// @lc code=start
 func insert(intervals [][]int, newInterval []int) [][]int {
 	return merge(append(intervals, newInterval))
 }
@@ -52,5 +45,3 @@ func maxInt(a, b int) int {
 		return b
 	}
 }
-// @lc code=end
-

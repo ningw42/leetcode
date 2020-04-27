@@ -1,14 +1,3 @@
-import (
-	"sort"
-)
-
-/*
- * @lc app=leetcode id=833 lang=golang
- *
- * [833] Find And Replace in String
- */
-
-// @lc code=start
 func findReplaceString(S string, indexes []int, sources []string, targets []string) string {
 	indexes, sources, targets = reorder(indexes, sources, targets)
 	var index, shift, shiftIndex int
@@ -74,6 +63,3 @@ func reorder(indexes []int, sources, targets []string) ([]int, []string, []strin
 
 	return nIndexes, nSources, nTargets
 }
-
-// @lc code=end
-

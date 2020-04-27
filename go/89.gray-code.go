@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=89 lang=golang
- *
- * [89] Gray Code
- */
-
-// @lc code=start
 func grayCode(n int) []int {
 	if n == 0 {
 		return []int{0}
@@ -18,5 +11,3 @@ func grayCode(n int) []int {
 		return ret
 	}
 }
-// @lc code=end
-

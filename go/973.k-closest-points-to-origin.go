@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=973 lang=golang
- *
- * [973] K Closest Points to Origin
- */
-
-// @lc code=start
 // max heap
 type PriorityQueue [][]int
 func (pq PriorityQueue) Len() int {
@@ -50,5 +43,3 @@ func kClosest(points [][]int, K int) [][]int {
 func distance(p []int) int {
     return p[0]*p[0] + p[1]*p[1]
 }
-// @lc code=end
-

@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=71 lang=golang
- *
- * [71] Simplify Path
- */
-
-// @lc code=start
 func simplifyPath(path string) string {
 	segments := strings.Split(path, "/")
 
@@ -23,5 +16,3 @@ func simplifyPath(path string) string {
 
 	return "/" + strings.Join(canonical, "/")
 }
-// @lc code=end
-

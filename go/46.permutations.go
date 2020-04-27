@@ -1,11 +1,3 @@
-/*
- * @lc app=leetcode id=46 lang=golang
- *
- * [46] Permutations
- */
-
-// @lc code=start
-
 func permute(nums []int) [][]int {
     return permutation(nums, make(map[int]struct{}))
 }
@@ -26,5 +18,3 @@ func permutation(nums []int, taken map[int]struct{}) [][]int {
     }
     return ret
 }
-// @lc code=end
-

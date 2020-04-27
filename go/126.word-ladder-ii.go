@@ -1,142 +1,120 @@
-/*
- * @lc app=leetcode id=126 lang=golang
- *
- * [126] Word Ladder II
- */
-
-// @lc code=start
-
-// naive DFS/backtracing wont work, time limit exceed
-// convert to graph and find shortest path
+// djikstra single sourced shortest path
 func findLadders(beginWord string, endWord string, wordList []string) [][]string {
-	// misc preparation
-	var numberOfVertex, begin, end int
-	var beginInList, endInList bool
-	for i := 0; i < len(wordList); i++ {
-		if beginWord == wordList[i] {
-			begin = i
-			beginInList = true 
-		}
-		if endWord == wordList[i] {
-			end = i
-			endInList = true
-		}
-	}
-	if !endInList {
-		return nil
-	}
-	if beginInList {
-		numberOfVertex = len(wordList)
-	} else {
-		begin = len(wordList)
-		numberOfVertex = len(wordList)+1
-	}
-	// build graph
-	var g [][]bool 
-	for i := 0; i < numberOfVertex; i++ {
-		g = append(g, make([]bool, numberOfVertex))
-	}
-	for i := 0; i < len(wordList); i++ {
-		for j := i+1; j < len(wordList); j++ {
-			if diff(wordList[i], wordList[j]) == 1 {
-				g[i][j] = true
-				g[j][i] = true
-			}
-		}
-	}
-	if !beginInList {
-		for i := 0; i < len(wordList); i++ {
-			if diff(beginWord, wordList[i]) == 1 {
-				g[begin][i] = true
-				g[i][begin] = true
-			}
-		}
-	}
-
-	// shortest path from begin to end
-	// BFS
-	queue := []int{begin}
-	// seen holds if the vertex has been seen
-	// seen[i] holds the shortest pathes from begin to i(share the same length)
-	seen := make([][][]int, numberOfVertex)
-	seen[begin] = [][]int{[]int{begin}}
-	BFS:
-	for len(queue) > 0 {
-		from := queue[0]
-		queue = queue[1:]
-		for to, edgeExists := range g[from] {
-			if edgeExists {
-				// remove edge from graph
-				g[from][to] = false
-				g[to][from] = false
-
-				if len(seen[to]) == 0 {
-					// if vertex has not been seen yet
-					// add to queue and mark as seen
-					queue = append(queue, to)
-					seen[to] = append(seen[to], appendToAll(seen[from], to)...)
-				} else {
-					// if vertex has been seen
-					// if the new path share the same length, append 
-					// if the new path length is greater than existing path length, ignore, if the 'to' vertex is our target, stop BFS
-					// it is impossible that the length of new path is smaller than existing path length, since we are doing BFS
-					if existingPathLength := len(seen[to][0]); existingPathLength == len(seen[from][0])+1 {
-						seen[to] = append(seen[to], appendToAll(seen[from], to)...)
-					} else if existingPathLength < len(seen[from][0])+1 {
-						if to == end {
-							break BFS
-						}
-					}
-				}
-			}
-		}
-	}
-
-	// translate result
-	pathes := seen[end]
-	if len(pathes) == 0 {
-		return nil
-	} else {
-		var sPathes [][]string
-		for _, path := range pathes {
-			var sPath []string
-			for _, stop := range path {
-				if stop == begin {
-					sPath = append(sPath, beginWord)
-				} else {
-					sPath = append(sPath, wordList[stop])
-				}
-			}
-			sPathes = append(sPathes, sPath)
-		}
-		return sPathes
-	}
+    m := makeMap(wordList)
+    if _, exists := m[endWord]; !exists {
+        return nil
+    }
+    m[beginWord] = len(wordList)
+    wordList = append(wordList, beginWord)
+    g := makeGraph(wordList)
+    begin := m[beginWord]
+    end := m[endWord]
+    visited := make([]bool, len(wordList))
+    dist := make([]int, len(wordList))
+    prev := make([][]int, len(wordList))
+    for i := 0; i < len(wordList); i++ {
+        dist[i] = math.MaxInt64
+    }
+    dist[begin] = 0
+    pq := NewPriorityQueue()
+    heap.Push(pq, Item{Node: begin, Dist: 0})
+    for pq.Len() > 0 {
+        item := heap.Pop(pq).(Item)
+        from := item.Node
+        visited[from] = true
+        for to, edgeExists := range g[from] {
+            if edgeExists {
+                if newDist := item.Dist + 1; newDist < dist[to] {
+                    dist[to] = newDist
+                    prev[to] = append(prev[to], from)
+                    heap.Push(pq, Item{Node: to, Dist: newDist})
+                } else if newDist == dist[to] {
+                    prev[to] = append(prev[to], from)
+                }
+            }
+        }
+    }
+    if dist[end] == math.MaxInt64 {
+        return nil
+    } else {
+        return reconstructPath(begin, end, prev, wordList)
+    }
 }
 
-func diff(a, b string) int {
-	var count int
-	for i := 0; i < len(a); i++ {
-		if a[i] != b[i] {
-			count++
-		}
-	}
-	return count
+type Item struct {
+    Node int
+    Dist int
 }
 
-func appendToAll(s [][]int, t int) [][]int {
-	var ret [][]int
-	for _, p := range s {
-		ret = append(ret, append(makeSliceCopy(p), t))
-	}
-	return ret
+type PriorityQueue []Item
+func NewPriorityQueue() *PriorityQueue {
+    var items []Item
+    pq := PriorityQueue(items)
+    return &pq
+}
+func (pq *PriorityQueue) Len() int {
+    return len(*pq)
+}
+func (pq *PriorityQueue) Swap(i, j int) {
+    (*pq)[i], (*pq)[j] = (*pq)[j], (*pq)[i]
+}
+func (pq *PriorityQueue) Less(i, j int) bool {
+    return (*pq)[i].Dist < (*pq)[j].Dist
+}
+func (pq *PriorityQueue) Push(item interface{}) {
+    (*pq) = append((*pq), item.(Item))
+}
+func (pq *PriorityQueue) Pop() interface{} {
+    length := pq.Len()
+    item := (*pq)[length-1]
+    (*pq) = (*pq)[:length-1]
+    return item
 }
 
-func makeSliceCopy(s []int) []int {
-	copy := make([]int, len(s))
-	for i, e := range s {
-		copy[i] = e
-	}
-	return copy
+func reconstructPath(from, to int, prevs [][]int, list []string) [][]string {
+    if from == to {
+        return [][]string{[]string{list[from]}}
+    } else {
+        var pathes [][]string
+        for _, prev := range prevs[to] {
+            for _, path := range reconstructPath(from, prev, prevs, list) {
+                pathes = append(pathes, append(path, list[to]))
+            }
+        }
+        return pathes
+    }
 }
-// @lc code=end
 
+func makeGraph(list []string) [][]bool {
+    g := make([][]bool, len(list))
+    for i := 0; i < len(list); i++ {
+        g[i] = make([]bool, len(list))
+    }
+    for i := 0; i < len(list); i++ {
+        for j := i + 1; j < len(list); j++ {
+            if stringDiff(list[i], list[j]) == 1 {
+                g[i][j] = true
+                g[j][i] = true
+            }
+        }
+    }
+    return g
+}
+
+func stringDiff(a, b string) int {
+    var diffBytes int
+    for i := 0; i < len(a); i++ {
+        if a[i] != b[i] {
+            diffBytes++
+        }
+    }
+    return diffBytes
+}
+
+func makeMap(list []string) map[string]int {
+    m := make(map[string]int)
+    for i, s := range list {
+        m[s] = i
+    }
+    return m
+}

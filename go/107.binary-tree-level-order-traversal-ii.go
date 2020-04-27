@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=107 lang=golang
- *
- * [107] Binary Tree Level Order Traversal II
- */
-
-// @lc code=start
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
@@ -32,5 +25,3 @@ func Traversal(root *TreeNode, level int, m map[int][]int) {
 		m[level] = append(m[level], root.Val)
 	}
 }
-// @lc code=end
-

@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=80 lang=golang
- *
- * [80] Remove Duplicates from Sorted Array II
- */
-
-// @lc code=start
 func removeDuplicates(nums []int) int {
 	length := len(nums)
 	if length <= 2 {
@@ -30,5 +23,3 @@ func removeDuplicates(nums []int) int {
 	}
 	return length
 }
-// @lc code=end
-

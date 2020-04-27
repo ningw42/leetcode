@@ -1,16 +1,3 @@
-
-import (
-	"fmt"
-	"sort"
-)
-
-/*
- * @lc app=leetcode id=726 lang=golang
- *
- * [726] Number of Atoms
- */
-
-// @lc code=start
 func countOfAtoms(formula string) string {
 	count := DoCount(formula)
 	var keys []string
@@ -87,6 +74,3 @@ func DoCount(formula string) map[string]int {
 
 	return ret
 }
-
-// @lc code=end
-

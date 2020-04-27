@@ -1,14 +1,3 @@
-import (
-	"container/heap"
-)
-
-/*
- * @lc app=leetcode id=692 lang=golang
- *
- * [692] Top K Frequent Words
- */
-
-// @lc code=start
 
 var count map[string]int
 
@@ -47,10 +36,9 @@ func MoreFrequent(a, b string) bool {
 }
 
 // 1. build min heap with size k
-// 2. scan all rest words with that min heap
+// 2. scan all words with that min heap
 // 3. pop all heap element in reversed order
 func topKFrequent(words []string, k int) []string {
-	// 1. build min heap with size k
 	count = make(map[string]int)
 	h := &WordHeap{}
 	i := 0
@@ -65,7 +53,6 @@ func topKFrequent(words []string, k int) []string {
 	}
 	heap.Init(h)
 
-	// 2. scan all rest words with that min heap
 	for i < len(words) {
 		if _, exists := count[words[i]]; exists {
 			count[words[i]]++
@@ -73,8 +60,8 @@ func topKFrequent(words []string, k int) []string {
 			count[words[i]] = 1
 		}
 		if MoreFrequent(words[i], (*h)[0]) {
+			// fmt.Printf("%s is more frequent than %s\n", words[i], (*h)[0])
 			exists := false
-			// can be optimized with a map
 			for index, word := range *h {
 				if word == words[i] {
 					heap.Fix(h, index)
@@ -90,7 +77,6 @@ func topKFrequent(words []string, k int) []string {
 		i++
 	}
 
-	// 3. pop all heap element in reversed order
 	result := make([]string, h.Len())
 	for i := h.Len() - 1; h.Len() > 0; i-- {
 		result[i] = heap.Pop(h).(string)
@@ -98,6 +84,3 @@ func topKFrequent(words []string, k int) []string {
 
 	return result
 }
-
-// @lc code=end
-

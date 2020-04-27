@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=214 lang=golang
- *
- * [214] Shortest Palindrome
- */
-
-// @lc code=start
 func shortestPalindrome(s string) string {
 	if len(s) < 2 {
 		return s
@@ -43,7 +36,4 @@ func reverseString(s string) string {
 	}
 	return string(bs)
 }
-
-
-// @lc code=end
 

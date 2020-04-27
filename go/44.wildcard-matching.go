@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=44 lang=golang
- *
- * [44] Wildcard Matching
- */
-
-// @lc code=start
 func isMatch(s string, p string) bool {
 	// return matchByBackTracking(s, p)
 	return matchByFiniteStateMachine(s, p)
@@ -12,7 +5,7 @@ func isMatch(s string, p string) bool {
 
 // https://leetcode.com/problems/wildcard-matching/discuss/138878/
 func matchByFiniteStateMachine(s, p string) bool {
-	// 1. build up the finite state machine
+	// build up the finite state machine
 	// state-input-next_state
 	fsm := make(map[int]map[byte]int)
 	var state int
@@ -31,21 +24,16 @@ func matchByFiniteStateMachine(s, p string) bool {
 		}
 	}
 
-	// 2. set accept state
+	// set accept state
 	acceptState := state
 
-	// 3. apply finite state machine to s
-	// 3.1 set initial state
+	// apply finite state machine to s
 	currentStates := map[int]bool{0: true}
 	for i := 0; i < len(s); i++ {
 		nextStates := make(map[int]bool)
-		// every possible state
 		for state := range currentStates {
-			// every matched token
-			for _, matchedToken := range []byte{s[i], '*', '?'} {
-				// if state transfer path exists
-				if nextState, ok := fsm[state][matchedToken]; ok {
-					// collect all possible next states
+			for _, nextToken := range []byte{s[i], '*', '?'} {
+				if nextState, ok := fsm[state][nextToken]; ok {
 					nextStates[nextState] = true
 				}
 			}
@@ -114,5 +102,3 @@ func backtracking(s, p string) bool {
 func nextToken(p string) byte {
 	return p[0]
 }
-// @lc code=end
-

@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=437 lang=golang
- *
- * [437] Path Sum III
- */
-
-// @lc code=start
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
@@ -53,5 +46,3 @@ func replicateUpperSums(upperSums map[int]int) map[int]int {
 	}
 	return replica
 }
-// @lc code=end
-

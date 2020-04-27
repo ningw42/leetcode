@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=264 lang=golang
- *
- * [264] Ugly Number II
- */
-
-// @lc code=start
 func nthUglyNumber(n int) int {
 	factors := []int{2, 3, 5}
 	results := make([]int, n)
@@ -30,6 +23,3 @@ func nthUglyNumber(n int) int {
 
 	return results[n-1]
 }
-
-// @lc code=end
-

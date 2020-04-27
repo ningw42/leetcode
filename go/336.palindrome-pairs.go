@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=336 lang=golang
- *
- * [336] Palindrome Pairs
- */
-
-// @lc code=start
 func palindromePairs(words []string) [][]int {
-	// return naive(words)
-	return trie(words)
+	return naive(words)
+	// return trie(words)
 }
 
 type Node struct {
@@ -43,13 +36,11 @@ func (node *Node) Traverse(prefix string) []string {
 	return result
 }
 
-// search reversed word among all words using trie
 func search(root *Node, word string) []string {
 	node := root
 	var result []string
 	var i int
 	for i = 0; i < len(word); i++ {
-		// 1. the given word is longer than the paired word
 		if node.End && isPalindrome(word[i:]) {
 			result = append(result, node.Value)
 		}
@@ -57,11 +48,9 @@ func search(root *Node, word string) []string {
 		if next, exists := node.Children[char]; exists {
 			node = next
 		} else {
-			// 2. not matches
 			break
 		}
 	}
-	// 3. the given word is shorter than the paired word
 	if i == len(word) {
 		for _, restOfWord := range node.Traverse("") {
 			if isPalindrome(restOfWord) {
@@ -73,7 +62,6 @@ func search(root *Node, word string) []string {
 	return result
 }
 
-// use trie to search answer
 func trie(words []string) [][]int {
 	// build trie
 	mapping := make(map[string]int)
@@ -136,5 +124,3 @@ func isPalindrome(s string) bool {
     }
     return true
 }
-// @lc code=end
-

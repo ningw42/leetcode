@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=227 lang=golang
- *
- * [227] Basic Calculator II
- */
-
-// @lc code=start
 
 // constuct postfix notation(reverse polish notation)
 // and evaluation
@@ -104,6 +97,3 @@ func isOperand(b byte) bool {
 func isOperater(b byte) bool {
 	return b == '+' || b == '-' || b == '*' || b == '/'
 }
-
-// @lc code=end
-

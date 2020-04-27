@@ -1,13 +1,3 @@
-/*
- * @lc app=leetcode id=132 lang=golang
- *
- * [132] Palindrome Partitioning II
- */
-
-// @lc code=start
-
-// DP
-// minCut(i) = min(minCut(j)+1) for 0 <= j < i and s[j:i] is palindrome
 func minCut(s string) int {
 	minCuts := make([]int, len(s)+1)
 	for i := 0; i <= len(s); i++ {
@@ -36,5 +26,3 @@ func isPalindrome(s string) bool {
 	}
 	return true
 }
-// @lc code=end
-

@@ -1,15 +1,8 @@
-/*
- * @lc app=leetcode id=135 lang=golang
- *
- * [135] Candy
- */
-
-// @lc code=start
 func candy(ratings []int) int {
-	// 1. find all local miniums(less than or equals to both side)
+	// 1. find all local miniums(less or equals to both side)
 	// 2. for each local minium, 
 	//    increase number of candies from the minium to both side 
-	//    until meets a local peak(greater than or equals to both side)
+	//    until meets a local peak
 	if len(ratings) <= 1 {
 		return len(ratings)
 	}
@@ -29,10 +22,8 @@ func candy(ratings []int) int {
 		currentMinCandyCount = 1
 		for cursor >= 0 {
 			if ratings[cursor] > ratings[cursor+1] {
-				// if greater than right rating, increase the minCandyCount
 				currentMinCandyCount++
 			} else {
-				// if less or equal than right rating, stops
 				break
 			}
 			if candies[cursor] < currentMinCandyCount {
@@ -72,5 +63,3 @@ func isLocalMinium(ratings []int, i int) bool {
 	}
 	return ratings[i-1] >= ratings[i] && ratings[i] <= ratings[i+1]
 }
-// @lc code=end
-

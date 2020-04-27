@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=79 lang=golang
- *
- * [79] Word Search
- */
-
-// @lc code=start
 func exist(board [][]byte, word string) bool {
 	for i := 0; i < len(board); i++ {
 		for j := 0; j < len(board[0]); j++ {
@@ -46,5 +39,3 @@ func adjacentExist(board [][]byte, i, j int, word string) bool {
 	}
 	return false
 }
-// @lc code=end
-
