@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode id=141 lang=csharp
+ * @lc app=leetcode id=142 lang=csharp
  *
- * [141] Linked List Cycle
+ * [142] Linked List Cycle II
  */
 
 // @lc code=start
@@ -18,7 +18,7 @@
  */
 public class Solution 
 {
-    public bool HasCycle(ListNode head) 
+    public ListNode DetectCycle(ListNode head) 
     {
         ListNode slow = head;
         ListNode fast = head;
@@ -28,13 +28,22 @@ public class Solution
             fast = fast.next.next;
             slow = slow.next;
 
+            // https://www.geeksforgeeks.org/floyds-cycle-finding-algorithm/
+            // cycle detected
             if (fast == slow)
             {
-                return true;
+                // reset any pointer
+                slow = head;
+                while (fast != slow)
+                {
+                    slow = slow.next;
+                    fast = fast.next;
+                }
+                return slow;
             }
         }
 
-        return false;
+        return null;
     }
 }
 // @lc code=end
